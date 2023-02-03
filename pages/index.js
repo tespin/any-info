@@ -13,6 +13,18 @@ export default function Home() {
   const [results, setResults] = useState([]);
   const [showResults, setShowResults] = useState(false);
   
+  // const results = [
+  //   {
+  //       "What data is being collected?": "Personal Information, Communication Information, Social Information, Technical Information, Log data, Usage data, Device information, Cookies, Analytics, Online Tracking and Do Not Track Signals",
+  //   },
+  //   {
+  //       "When is the data collected?": "When you create an account to use our Services, communicate with us, interact with our Social Media Pages, visit, use, and interact with the Services",
+  //   },
+  //   {
+  //       "How can I opt-out?": "You can set your browser to accept all cookies, to reject all cookies, or to notify you whenever a cookie is offered so that you can decide each time whether to accept it"
+  //   }
+  // ];
+
   const textHandler = (event) => {
     setPolicy(event.target.value);
   }
@@ -20,6 +32,10 @@ export default function Home() {
   const generateResults = async (event) => {
     event.preventDefault();
     setLoading(true);
+    // results.map( (result) => {
+    //   console.log(result);
+    // })
+    // results.map( (Object.entries(result)))
   
     const res = await fetch('/api/demystify', {
       method: 'POST',
@@ -36,10 +52,11 @@ export default function Home() {
     }
 
     const json = await res.json();
+    // console.log(`from client ${json.data}`);
     // setResults(json.data.choices);
-    const parsed = JSON.parse(json.data);
-    // console.log(parsed.choices[0]);
-    // console.log(json.data.id);
+    const data = JSON.parse(json.data);
+    // console.log(data);
+    setResults(data);
     setLoading(false);
     setShowResults(true);
 
@@ -69,8 +86,8 @@ export default function Home() {
         </form>
         {showResults && (
           <div>
-            {results.map( ({q, a}) => (
-              <Card key={q} question={q} answer={a}/>
+            {results.map( (result) => (
+              <Card key={result.q} question={result.q} answer={result.a}/>
             ))}
           </div>
         )}

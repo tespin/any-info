@@ -1,8 +1,11 @@
 const Card = (props) => {
+    // console.log(`from card: question is ${props.q}`)
     return (
         <>
-            <h2>{props.q}</h2>
-            <p>{props.a}</p>
+            <div key={props.key}>
+                <h2>{props.question}</h2>
+                <p>{props.answer}</p>
+            </div>
         </>
     );
 }
