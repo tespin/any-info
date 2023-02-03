@@ -38,7 +38,7 @@ export default function Home() {
     const json = await res.json();
     // setResults(json.data.choices);
     const parsed = JSON.parse(json.data);
-    console.log(parsed.choices[0]);
+    // console.log(parsed.choices[0]);
     // console.log(json.data.id);
     setLoading(false);
     setShowResults(true);

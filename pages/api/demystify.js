@@ -48,7 +48,10 @@ const handler = async (req, res) => {
       body: JSON.stringify(payload)
     });
 
-    const apiData = await apiRes.json();
+    const { choices } = await apiRes.json();
+    const { text } = choices[0];
+    const apiData = text.trim().replace(/Answer: /, "");
+    console.log(apiData);
 
     res.status(200).json({ data: JSON.stringify(apiData)});
   } else {
