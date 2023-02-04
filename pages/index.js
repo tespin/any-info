@@ -31,6 +31,7 @@ export default function Home() {
   
   const generateResults = async (event) => {
     event.preventDefault();
+    console.log('loading');
     setLoading(true);
     // results.map( (result) => {
     //   console.log(result);
@@ -52,11 +53,30 @@ export default function Home() {
     }
 
     const json = await res.json();
+    // console.log(json.data);
+    // console.log(JSON.parse(json.data));
+    // const data = JSON.parse(JSON.parse(json));
+    const data = JSON.parse(JSON.parse(json.data));
+    // console.log(parsed);
+    // console.log(`parsed data is type: ${typeof(parsed)}`);
+    setResults(data);
+    // console.log(typeof(results));
+    // console.log(JSON.stringify(json));
+    // console.log(`json response: ${JSON.parse(json)}`);
     // console.log(`from client ${json.data}`);
     // setResults(json.data.choices);
-    const data = JSON.parse(json.data);
+    // const data = JSON.parse(json.data);
+    console.log('results loaded');
     // console.log(data);
-    setResults(data);
+    // console.log(typeof(data));
+
+    // const tempData = [];
+    // for (let d in data) {
+    //   tempData.push(d);
+    // }
+    // console.log(tempData);
+    // setResults(tempData);
+    // setResults(data);
     setLoading(false);
     setShowResults(true);
 

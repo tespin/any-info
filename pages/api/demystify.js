@@ -27,7 +27,7 @@ const handler = async (req, res) => {
     
     // This is the context: ${policy}`;
 
-    const prompt = `Generate an array of Javascript objects where each object has the keys and q and a. Assign the following questions to each key, then use them to summarize the provided context.
+    const prompt = `Generate an array of Javascript objects where each object has the keys q and a. For each object, add quotes around the keys q and a. Assign the following questions to each key, then use them to summarize the provided context. Keep the value a under 50 words.
 
     These are the questions: What data is being collected? When is the data collected? How can I opt-out?
     
@@ -38,7 +38,7 @@ const handler = async (req, res) => {
     const payload = {
       model: "text-davinci-003",
       prompt,
-      temperature: 0.7,
+      temperature: 0,
       top_p: 1,
       frequency_penalty: 0,
       presence_penalty: 0,
@@ -58,14 +58,19 @@ const handler = async (req, res) => {
 
     /* completion comes with extra text and newlines so we clean it up here */
     const { choices } = await apiRes.json();
+    // console.log(choices);
     // const { apiData } = await apiRes.json();
     const { text } = choices[0];
+    // console.log(text);
     // const data = await apiRes.json();
     // console.log(data);
     // const apiData = text.trim().replace(/Array of Javascript Objects: /, "");
-    const apiData = text.trim().replace(/^[^\[]*/, "");
+    // const apiData = text.trim().replace(/^[^\[]*/, "");
+    const apiData = text.replace(/^[^\[]*/, "");
     console.log(apiData);
+    // console.log(`from server: ${apiData}`);
 
+    // res.status(200).json({ data: apiData});
     res.status(200).json({ data: JSON.stringify(apiData)});
   } else {
     res.status(200).json({ message: 'No data' });
