@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Card from '@/components/home/Card';
 import { useState } from 'react';
 import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -93,24 +92,24 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <h1>Demystify any privacy policy with AnyInfo</h1>
-        <p>AnyInfo analyzes privacy policies to tell you what data is being collected, when, and how you can protect yourself.</p>
-        <p>Paste your privacy policy below:</p>
-        <form>
-          <div>
-            <label htmlFor='policy'>Privacy Policy</label>
-            <textarea value={policy} onChange={textHandler} id='policy' rows='5'></textarea>
-          </div>
-          <button onClick={generateResults}>Analyze policy</button>
-        </form>
-        {showResults && (
-          <div>
-            {results.map( (result) => (
-              <Card key={result.q} question={result.q} answer={result.a}/>
-            ))}
-          </div>
-        )}
+      <main>
+        <div className="flex flex-col justify-center items-center my-32">
+          <h1 className="text-5xl">Demystify any privacy policy with AnyInfo</h1>
+          <p className="text-lg mt-8">AnyInfo attempts to demystify privacy policies to tell you what data is being collected, how it's being used, and how you can opt-out.</p>
+          {/* <p className="mt-4">Paste your privacy policy below:</p> */}
+            <div className="flex flex-col mt-8">
+              <label htmlFor='policy'>Paste your privacy policy below:</label>
+              <textarea value={policy} onChange={textHandler} id='policy' rows='5'></textarea>
+            </div>
+            <button onClick={generateResults}>Analyze policy</button>
+          {showResults && (
+            <div>
+              {results.map( (result) => (
+                <Card key={result.q} question={result.q} answer={result.a}/>
+              ))}
+            </div>
+          )}
+        </div>
       </main>
     </>
   )
