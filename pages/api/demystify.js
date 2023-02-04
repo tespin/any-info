@@ -27,9 +27,9 @@ const handler = async (req, res) => {
     
     // This is the context: ${policy}`;
 
-    const prompt = `Generate an array of Javascript objects where each object has the keys q and a. For each object, add quotes around the keys q and a. Assign the following questions to each key, then use them to summarize the provided context. Keep the value a under 50 words.
+    const prompt = `Generate an array of Javascript objects where each object has the keys q and a. Add quotes to every key. Assign the following questions to each key, then use them to summarize the provided context. Keep the value a under 60 words.
 
-    These are the questions: What data is being collected? When is the data collected? How can I opt-out?
+    These are the questions to use as keys for each object: What data is being collected? How is my being data used? What are my options for opting-out?
     
     This is the context: 
     
