@@ -92,14 +92,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <div className="flex flex-col justify-center items-center my-32">
+      <main className>
+        <div className="flex flex-col justify-center items-center my-32 text-white">
           <h1 className="text-5xl">Demystify any privacy policy with AnyInfo</h1>
           <p className="text-lg mt-8">AnyInfo attempts to demystify privacy policies to tell you what data is being collected, how it's being used, and how you can opt-out.</p>
           {/* <p className="mt-4">Paste your privacy policy below:</p> */}
             <div className="flex flex-col mt-8">
               <label htmlFor='policy'>Paste your privacy policy below:</label>
-              <textarea value={policy} onChange={textHandler} id='policy' rows='5'></textarea>
+              <textarea className="bg-transparent border-white" value={policy} onChange={textHandler} id='policy' rows='5'></textarea>
             </div>
             <button onClick={generateResults}>Analyze policy</button>
           {showResults && (
