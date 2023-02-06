@@ -45,17 +45,19 @@ const handler = async (req, res) => {
     
     // For each object, generate concise (30 words or less) answers for the key a by using the question in key q on the provided the context. Show the completed array.`;
 
-    const prompt = `Privacy policies are documents that explain how a company handles user data and what a user's rights are in regards to their data. You will be analyzing privacy policies and explaining what data is being collected, how the data is being used, and what the options are available for users who want to opt-out of the collection or monetization of their data. You have 65 words to use for each explanation. If an explanation exceeds 65 words, you will rewrite it to be under 65 words. Your answer will be formatted as a Javascript array of objects, where the value of each key "a" will be the summary that corresponds to the question in key "q". If you have enough information to answer each question, and if you are sure the provided context is a privacy policy, then use the following array and return the completed one as the answer:
+    const prompt = `Privacy policies are documents that explain how a company handles user data and what a user's rights are in regards to their data. You will be analyzing privacy policies and explaining what data is being collected, how the data is being used, and what the options are available for users who want to opt-out of the collection or monetization of their data. You have 65 words to use for each explanation. If an explanation exceeds 65 words, you will rewrite it to be under 65 words. Your answer will be formatted as a Javascript array of objects, where the value of each key "a" will be the summary that corresponds to the question in key "q".
+    
+    Please analyze the following policy:
+
+    ${policy}
+
+    If you have enough information to answer each question, and if you are sure the provided context is a privacy policy, then use the following array and return the completed one as the answer:
 
     [{ "q": "What data is being collected?", "a": ""}, {"q": "How is the data being used?", "a": ""}, {"q": "What are my options for opting-out?", "a": ""}]
     
     Otherwise, if you do not have enough information to answer a question, or you do not think that the provided context is a privacy policy, you will respond with the following:
     
-    [{ "q": "Incomplete Data", "a": "More information needed. Please add more or retry with a different policy."}] 
-    
-    Please analyze the following policy:
-    
-    ${policy}`;
+    [{ "q": "Incomplete Data", "a": "More information needed. Please add more or retry with a different policy."}] `;
 
     const payload = {
       model: "text-davinci-003",
