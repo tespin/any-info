@@ -27,13 +27,23 @@ const handler = async (req, res) => {
     
     // This is the context: ${policy}`;
 
-    const prompt = `Generate an array of Javascript objects where each object has the keys q and a. Add quotes to every key. Assign the following questions to each key, then use them to summarize the provided context. Keep the value a under 60 words.
+    // const prompt = `Generate an array of Javascript objects where each object has the keys q and a. Add quotes to every key. Assign the following questions to each key, then use them to summarize the provided context. Keep the value a under 60 words.
 
-    These are the questions to use as keys for each object: What data is being collected? How is my being data used? What are my options for opting-out?
+    // These are the questions to use as keys for each object: What data is being collected? How is my being data used? What are my options for opting-out?
     
-    This is the context: 
+    // This is the context: 
     
-    ${policy}`;
+    // ${policy}`;
+
+    const prompt = `Javascript. Generate an array of objects like below:
+
+    [{ "q": "What data is being collected?", "a": ""}, {"q": "How is the data being used?", "a": ""}, {"q": "What are my options for opting-out?", "a": ""}]
+    
+    There is also a context:
+
+    ${policy}
+    
+    For each object, generate concise (30 words or less) answers for the key a by using the question in key q on the provided the context. Show the completed array.`;
 
     const payload = {
       model: "text-davinci-003",
