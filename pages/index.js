@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Card from '@/components/home/Card';
-import { useState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
 import localFont from '@next/font/local';
 const calluna = localFont({ 
@@ -15,14 +15,10 @@ const jakarta = Plus_Jakarta_Sans({
   variable: '--font-jakarta-sans'
 })
 
-// import { Inter } from '@next/font/google'
-
-// const inter = Inter({ subsets: ['latin'] });
-
 export default function Home() {
   const [loading, setLoading] = useState(false);
-  const [policy, setPolicy] = useState('');
   const [results, setResults] = useState([]);
+  const [content, setContent] = useState('');
   const [showResults, setShowResults] = useState(false);
   
   // const data = [
@@ -40,14 +36,27 @@ export default function Home() {
   //   }
   // ];
 
-  const textHandler = (event) => {
-    setPolicy(event.target.value);
-  }
+  // const textHandler = (event) => {
+  //   setPolicy(event.target.value);
+  // }
+  const limit = 15000;
+
+  const textHandler = useCallback(
+    text => {
+      setContent(text.slice(0, limit));
+    },
+    [limit, setContent]
+  );
+
+  // useEffect(() => {
+  //   textHandler(content);
+  // }, [content])
   
   const generateResults = async (event) => {
     event.preventDefault();
     setResults([]);
     setLoading(true);
+    console.log(content);
   
     const res = await fetch('/api/demystify', {
       method: 'POST',
@@ -55,7 +64,7 @@ export default function Home() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ 
-        policy 
+        content 
       })
     });
 
@@ -67,7 +76,6 @@ export default function Home() {
     const data = JSON.parse(JSON.parse(json.data));
 
     setResults(data);
-    console.log('results loaded');
     setLoading(false);
     setShowResults(true);
   }
@@ -90,7 +98,9 @@ export default function Home() {
             {/* <p className="mt-4">Paste your privacy policy below:</p> */}
             <div className="flex flex-col mt-10 w-5/12">
               <label className= "text-left opacity-60" htmlFor='policy'>Copy and paste your privacy policy below:</label>
-              <textarea className="bg-transparent border-white rounded mt-2 focus:outline-none focus:ring  focus:ring-white" value={policy} onChange={textHandler} id='policy' rows='5'></textarea>
+              {/* <textarea className="bg-transparent border-white rounded mt-2 focus:outline-none focus:ring  focus:ring-white" value={policy} onChange={textHandler} id='policy' rows='5'></textarea> */}
+              <textarea className="bg-transparent border-white rounded mt-2 focus:outline-none focus:ring  focus:ring-white" value={content} onChange={event => textHandler(event.target.value)} id='policy' rows='5'></textarea>
+              <p>{content.length} / {limit}</p>
             </div>
             <div>
             <button className="bg-gradient-to-br from-[#3AAE62] to-[#9F4CC7] focus:outline-none focus:ring  focus:ring-white mt-5 px-0.5 py-0.5 rounded" disabled={loading} onClick={generateResults}>
