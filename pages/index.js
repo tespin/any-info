@@ -113,7 +113,7 @@ export default function Home() {
               <div className="flex flex-col justify-center lg:w-5/12 mt-12">
                 <p className="text-white mt-8">made by <a href="https://twitter.com/tristan_virtual" className="underline underline-offset-4 hover:text-black">tristan espinoza</a>
                 </p>
-                <p className="mt-8"><span className="font-bold">note:</span> results can take up to 30 seconds to appear. i&apos;m still ironing things out so if you receive an error or have suggestions, please feel free to open up an issue on <a href="https://www.github.com/tespin/any-info" className="underline underline-offset-4 hover:text-black">github</a>! </p>
+                <p className="mt-8"><span className="font-bold">note:</span> results can take up to 10 seconds to appear. i&apos;if you receive an error or have suggestions, please feel free to open up an issue on <a href="https://www.github.com/tespin/any-info" className="underline underline-offset-4 hover:text-black">github</a>! </p>
               </div>
             </div>
         </div>
