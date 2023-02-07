@@ -76,30 +76,6 @@ Exercising Your Rights: California residents can exercise the above privacy righ
 Verification: in order to protect your Personal Information from unauthorized access or deletion, we may require you to verify your credentials before you can submit a request to know or delete Personal Information. If you do not have an account with us, or if we suspect fraudulent or malicious activity, we may ask you to provide additional Personal Information and proof of residency for verification. If we cannot verify your identity, we will not provide or delete your Personal Information.
 
 Authorized Agents: you may submit a request to know or a request to delete your Personal Information through an authorized agent. If you do so, the agent must present signed written permission to act on your behalf and you may also be required to independently verify your identity and submit proof of your residency with us.
-
-6. CHILDREN
-
-Our Service is not directed to children who are under the age of 13. OpenAI does not knowingly collect Personal Information from children under the age of 13. If you have reason to believe that a child under the age of 13 has provided Personal Information to OpenAI through the Service please email us at support@openai.com and we will endeavor to delete that information from our databases.
-
-7. LINKS TO OTHER WEBSITES
-
-The Service may contain links to other websites not operated or controlled by OpenAI, including social media services (“Third Party Sites”). The information that you share with Third Party Sites will be governed by the specific privacy policies and terms of service of the Third Party Sites and not by this Privacy Policy. By providing these links we do not imply that we endorse or have reviewed these sites. Please contact the Third Party Sites directly for information on their privacy practices and policies.
-
-8. SECURITY
-
-You use the Service at your own risk. We implement commercially reasonable technical, administrative, and organizational measures to protect Personal Information both online and offline from loss, misuse, and unauthorized access, disclosure, alteration, or destruction. However, no Internet or e-mail transmission is ever fully secure or error free. In particular, e-mail sent to or from us may not be secure. Therefore, you should take special care in deciding what information you send to us via the Service or e-mail. In addition, we are not responsible for circumvention of any privacy settings or security measures contained on the Service, or third party websites.
-
-9. INTERNATIONAL USERS
-
-By using our Service, you understand and acknowledge that your Personal Information will be transferred from your location to our facilities and servers in the United States.
-
-10. YOUR CHOICES
-
-If you choose not to provide Personal Information that is needed to use some features of our Service, you may be unable to use those features.
-
-11. CHANGES TO THE PRIVACY POLICY
-
-We may change this Privacy Policy at any time. When we do we will post an updated version on this page, unless another type of notice is required by applicable law. By continuing to use our Service or providing us with Personal Information after we have posted an updated Privacy Policy, or notified you by other means, you consent to the revised Privacy Policy.
 `;
 
 module.exports = { initContent };
