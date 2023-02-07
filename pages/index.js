@@ -88,13 +88,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="font-jakarta">
-        <div className="flex flex-col justify-center items-center">
-          <div className="flex flex-col justify-center items-center w-screen text-center my-28 text-white ">
-            <div className="flex flex-col justify-center items-center w-1/3">
+        <div className="flex flex-col md:justify-start lg:justify-center items-center">
+          <div className="flex flex-col md:justify-start lg:justify-center items-center md:w-full lg:w-screen md:text-left md:px-8 lg:text-center my-28 text-white ">
+            <div className="flex flex-col md:justify-start md:items-start lg:justify-center lg:items-center md:w-full md:text-left lg:text-center lg:w-1/3">
               <h1 className={`font-calluna text-6xl`}>Demystify any privacy policy with AnyInfo</h1>
               <p className="text-lg mt-8 max-w-2xl">AnyInfo attempts to demystify privacy policies to tell you what data is being collected, how it's being used, and how you can opt-out.</p>
             </div>
-            <div className="flex flex-col mt-10 w-5/12">
+            <div className="flex flex-col mt-10 md:w-full lg:w-5/12">
               <div className="flex flex-row justify-between">
                 <label className= "text-left opacity-60" htmlFor='policy'>Copy and paste your privacy policy below:</label>
                 {/* <p className="text-sm mt-1">{content.length} / {limit} characters</p> */}
@@ -102,18 +102,18 @@ export default function Home() {
               </div>
               <textarea className={`bg-transparent border-white ${content.length < limit ? 'border-white' : 'border-red-700' } rounded mt-2 focus:outline-none focus:ring ${content.length < limit ? 'focus:ring-white' : 'focus:ring-red-700' } ${loading && 'opacity-60'}`} value={content} onChange={event => textHandler(event.target.value)} id='policy' rows='5' disabled={loading}></textarea>
             </div>
-            <div>
-            <button className={`bg-gradient-to-br from-[#3AAE62] to-[#9F4CC7] focus:outline-none focus:ring  focus:ring-white mt-5 px-0.5 py-0.5 rounded ${content.length >= limit ? 'opacity-60' : ''}`} disabled={loading || content.length >= limit} onClick={generateResults}>
-                <div className={`bg-black ${(!loading && content.length < limit) && 'hover:bg-gradient-to-br'} ${(!loading && content.length < limit) && 'hover:text-black'} from-[#3AAE62] to-[#9F4CC7] px-16 py-3 rounded`}>
-              { loading 
-                ? <div className="w-6 h-6 rounded-full animate-spin border-2 border-solid border-white border-t-transparent"></div>
-                : 'Analyze policy'
-              }
-                </div>
-            </button>
+            <div className="flex md:justify-start lg:justify-center md:items-start lg:items-center md:w-full lg:w-screen">
+              <button className={`bg-gradient-to-br from-[#3AAE62] to-[#9F4CC7] focus:outline-none focus:ring  focus:ring-white mt-5 px-0.5 py-0.5 rounded  ${content.length >= limit ? 'opacity-60' : ''}`} disabled={loading || content.length >= limit} onClick={generateResults}>
+                  <div className={`bg-black ${(!loading && content.length < limit) && 'hover:bg-gradient-to-br'} ${(!loading && content.length < limit) && 'hover:text-black'} from-[#3AAE62] to-[#9F4CC7] px-16 py-3 rounded`}>
+                { loading 
+                  ? <div className="w-6 h-6 rounded-full animate-spin border-2 border-solid border-white border-t-transparent"></div>
+                  : 'Analyze policy'
+                }
+                  </div>
+              </button>
             </div>
             {showResults && (
-              <div className="flex flex-row justify-between mt-10 w-5/12">
+              <div className="flex sm:flex-row justify-between mt-10 md:w-full lg:w-5/12">
                 {results.map( (result) => (
                   <Card key={result.q} question={result.q} answer={result.a}/>
                   ))}
