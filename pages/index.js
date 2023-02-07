@@ -89,7 +89,7 @@ export default function Home() {
       </Head>
       <main className="font-jakarta">
         <div className="flex flex-col md:justify-start lg:justify-center items-center">
-          <div className="flex flex-col md:justify-start lg:justify-center items-center md:w-full lg:w-screen md:text-left md:px-8 lg:text-center my-28 text-white ">
+          <div className="flex flex-col md:justify-start lg:justify-center items-center md:w-full lg:w-screen md:text-left md:px-8 lg:text-center my-28 text-white">
             <div className="flex flex-col md:justify-start md:items-start lg:justify-center lg:items-center md:w-full md:text-left lg:text-center lg:w-1/3">
               <h1 className={`font-calluna text-6xl`}>Demystify any privacy policy with AnyInfo</h1>
               <p className="text-lg mt-8 max-w-2xl">AnyInfo attempts to demystify privacy policies to tell you what data is being collected, how it's being used, and how you can opt-out.</p>
@@ -97,7 +97,6 @@ export default function Home() {
             <div className="flex flex-col mt-10 md:w-full lg:w-5/12">
               <div className="flex flex-row justify-between">
                 <label className= "text-left opacity-60" htmlFor='policy'>Copy and paste your privacy policy below:</label>
-                {/* <p className="text-sm mt-1">{content.length} / {limit} characters</p> */}
                 <p className="text-sm mt-1">{limit-content.length} characters</p>
               </div>
               <textarea className={`bg-transparent border-white ${content.length < limit ? 'border-white' : 'border-red-700' } rounded mt-2 focus:outline-none focus:ring ${content.length < limit ? 'focus:ring-white' : 'focus:ring-red-700' } ${loading && 'opacity-60'}`} value={content} onChange={event => textHandler(event.target.value)} id='policy' rows='5' disabled={loading}></textarea>
@@ -119,6 +118,11 @@ export default function Home() {
                   ))}
               </div>
             )}
+              <div className="flex flex-col justify-center lg:w-5/12 mt-12">
+                <p className="text-white mt-8">made by <a href="https://twitter.com/tristan_virtual" className="underline underline-offset-4 hover:text-black">tristan espinoza</a>
+                </p>
+                <p className="mt-8"><span className="font-bold">note:</span> results can take up to 30 seconds to appear. i'm still ironing things out so if you receive an error or have suggestions, please feel free to open up an issue on <a href="https://www.github.com/tespin/any-info" className="underline underline-offset-4 hover:text-black">github</a>! </p>
+              </div>
             </div>
         </div>
       </main>
