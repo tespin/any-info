@@ -35,7 +35,7 @@ export default function Home() {
   //       "a": "You can set your browser to accept all cookies, to reject all cookies, or to notify you whenever a cookie is offered so that you can decide each time whether to accept it"
   //   }
   // ];
-  const limit = 15000;
+  const limit = 11500;
 
   const textHandler = useCallback(
     text => {
