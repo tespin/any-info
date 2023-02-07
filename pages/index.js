@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import Card from '@/components/home/Card';
 import { initContent } from '@/public/utilities/utils';
 import { useState, useCallback, useEffect } from 'react';
@@ -36,10 +35,6 @@ export default function Home() {
   //       "a": "You can set your browser to accept all cookies, to reject all cookies, or to notify you whenever a cookie is offered so that you can decide each time whether to accept it"
   //   }
   // ];
-
-  // const textHandler = (event) => {
-  //   setPolicy(event.target.value);
-  // }
   const limit = 15000;
 
   const textHandler = useCallback(
@@ -48,10 +43,6 @@ export default function Home() {
     },
     []
   );
-
-  // useEffect(() => {
-  //   textHandler(content);
-  // }, [content])
   
   const generateResults = async (event) => {
     event.preventDefault();
