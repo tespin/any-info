@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Card from '@/components/home/Card';
+import { initContent } from '@/public/utilities/utils';
 import { useState, useCallback, useEffect } from 'react';
 
 import localFont from '@next/font/local';
@@ -18,7 +19,7 @@ const jakarta = Plus_Jakarta_Sans({
 export default function Home() {
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
-  const [content, setContent] = useState('');
+  const [content, setContent] = useState(initContent);
   const [showResults, setShowResults] = useState(false);
   
   // const data = [

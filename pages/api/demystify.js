@@ -48,7 +48,7 @@ const handler = async (req, res) => {
     const { choices } = await apiRes.json();
     const { text } = choices[0];
     const apiData = text.replace(/^[^\[]*/, ""); /* completion comes with extra text and newlines so we clean it up here */
-    console.log(apiData);
+    // console.log(apiData);
     res.status(200).json({ data: JSON.stringify(apiData)});
   } else {
     res.status(200).json({ message: 'No data' });
