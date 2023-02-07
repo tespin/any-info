@@ -93,7 +93,7 @@ export default function Home() {
           <div className="flex flex-col md:justify-start lg:justify-center items-center md:w-full lg:w-screen md:text-left sm:px-8 lg:text-center my-28 text-white">
             <div className="flex flex-col md:justify-start md:items-start lg:justify-center lg:items-center md:w-full md:text-left lg:text-center lg:w-1/3">
               <h1 className={`font-calluna text-6xl`}>Demystify any privacy policy with AnyInfo</h1>
-              <p className="text-lg mt-8">AnyInfo attempts to demystify privacy policies to tell you what data is being collected, how it's being used, and how you can opt-out.</p>
+              <p className="text-lg mt-8">AnyInfo attempts to demystify privacy policies to tell you what data is being collected, how it&apos;s being used, and how you can opt-out.</p>
             </div>
             <div className="flex flex-col mt-10 md:w-full lg:w-5/12">
               <div className="flex flex-row justify-between">
@@ -122,7 +122,7 @@ export default function Home() {
               <div className="flex flex-col justify-center lg:w-5/12 mt-12">
                 <p className="text-white mt-8">made by <a href="https://twitter.com/tristan_virtual" className="underline underline-offset-4 hover:text-black">tristan espinoza</a>
                 </p>
-                <p className="mt-8"><span className="font-bold">note:</span> results can take up to 30 seconds to appear. i'm still ironing things out so if you receive an error or have suggestions, please feel free to open up an issue on <a href="https://www.github.com/tespin/any-info" className="underline underline-offset-4 hover:text-black">github</a>! </p>
+                <p className="mt-8"><span className="font-bold">note:</span> results can take up to 30 seconds to appear. i&apos;m still ironing things out so if you receive an error or have suggestions, please feel free to open up an issue on <a href="https://www.github.com/tespin/any-info" className="underline underline-offset-4 hover:text-black">github</a>! </p>
               </div>
             </div>
         </div>
