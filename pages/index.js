@@ -46,7 +46,7 @@ export default function Home() {
     text => {
       setContent(text);
     },
-    [limit, setContent]
+    [content, setContent]
   );
 
   // useEffect(() => {
