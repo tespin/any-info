@@ -100,7 +100,7 @@ export default function Home() {
                 {/* <p className="text-sm mt-1">{content.length} / {limit} characters</p> */}
                 <p className="text-sm mt-1">{limit-content.length} characters</p>
               </div>
-              <textarea className={`bg-transparent border-white ${content.length < limit ? 'border-white' : 'border-red-700' } rounded mt-2 focus:outline-none focus:ring ${content.length < limit ? 'focus:ring-white' : 'focus:ring-red-700' }`} value={content} onChange={event => textHandler(event.target.value)} id='policy' rows='5'></textarea>
+              <textarea className={`bg-transparent border-white ${content.length < limit ? 'border-white' : 'border-red-700' } rounded mt-2 focus:outline-none focus:ring ${content.length < limit ? 'focus:ring-white' : 'focus:ring-red-700' } ${loading && 'opacity-60'}`} value={content} onChange={event => textHandler(event.target.value)} id='policy' rows='5' disabled={loading}></textarea>
             </div>
             <div>
             <button className={`bg-gradient-to-br from-[#3AAE62] to-[#9F4CC7] focus:outline-none focus:ring  focus:ring-white mt-5 px-0.5 py-0.5 rounded ${content.length >= limit ? 'opacity-60' : ''}`} disabled={loading || content.length >= limit} onClick={generateResults}>
