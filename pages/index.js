@@ -89,10 +89,10 @@ export default function Home() {
       </Head>
       <main className="font-jakarta">
         <div className="flex flex-col md:justify-start lg:justify-center items-center">
-          <div className="flex flex-col md:justify-start lg:justify-center items-center md:w-full lg:w-screen md:text-left md:px-8 lg:text-center my-28 text-white">
+          <div className="flex flex-col md:justify-start lg:justify-center items-center md:w-full lg:w-screen md:text-left sm:px-8 lg:text-center my-28 text-white">
             <div className="flex flex-col md:justify-start md:items-start lg:justify-center lg:items-center md:w-full md:text-left lg:text-center lg:w-1/3">
               <h1 className={`font-calluna text-6xl`}>Demystify any privacy policy with AnyInfo</h1>
-              <p className="text-lg mt-8 max-w-2xl">AnyInfo attempts to demystify privacy policies to tell you what data is being collected, how it's being used, and how you can opt-out.</p>
+              <p className="text-lg mt-8">AnyInfo attempts to demystify privacy policies to tell you what data is being collected, how it's being used, and how you can opt-out.</p>
             </div>
             <div className="flex flex-col mt-10 md:w-full lg:w-5/12">
               <div className="flex flex-row justify-between">
