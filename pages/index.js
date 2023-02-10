@@ -59,8 +59,8 @@ export default function Home() {
       })
     });
 
-    if (response.status !== 200) {
-      throw new Error(`Request failed with status ${response.status}`);
+    if (res.status !== 200) {
+      throw new Error(`Request failed with status ${res.status}`);
     }
 
     if (!res.ok) {
