@@ -1,3 +1,5 @@
+const charLimit = 11500;
+
 const initContent = `We at OpenAI, L.L.C. (together with our affiliates, “OpenAI”, “we”, “our” or “us”) respect your privacy and are strongly committed to keeping secure any information we obtain from you or about you. This Privacy Policy describes our practices with respect to Personal Information we collect from or about you when you access OpenAI and its affiliates’ websites (collectively, the “Site”), or use OpenAI and its affiliates’ products and services, including application programming interfaces, associated software, tools, developer services, data and documentation (collectively, the “Services”).
 
 1. PERSONAL INFORMATION WE COLLECT
@@ -78,4 +80,4 @@ Verification: in order to protect your Personal Information from unauthorized ac
 Authorized Agents: you may submit a request to know or a request to delete your Personal Information through an authorized agent. If you do so, the agent must present signed written permission to act on your behalf and you may also be required to independently verify your identity and submit proof of your residency with us.
 `;
 
-module.exports = { initContent };
+module.exports = { initContent, charLimit };

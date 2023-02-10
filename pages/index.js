@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Card from '@/components/home/Card';
-import { initContent } from '@/public/utilities/utils';
+import { initContent, charLimit } from '@/public/utilities/utils';
 import { useState, useCallback, useEffect } from 'react';
 
 import localFont from '@next/font/local';
@@ -10,10 +10,11 @@ const calluna = localFont({
 });
 
 import { Plus_Jakarta_Sans }  from '@next/font/google';
+
 const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
   variable: '--font-jakarta-sans'
-})
+});
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -35,7 +36,6 @@ export default function Home() {
   //       "a": "You can set your browser to accept all cookies, to reject all cookies, or to notify you whenever a cookie is offered so that you can decide each time whether to accept it"
   //   }
   // ];
-  const limit = 11500;
 
   const textHandler = useCallback(
     text => {
@@ -59,8 +59,12 @@ export default function Home() {
       })
     });
 
+    if (response.status !== 200) {
+      throw new Error(`Request failed with status ${response.status}`);
+    }
+
     if (!res.ok) {
-      throw new Error(res.statusText);
+      throw new Error(res.status);
     }
 
     const json = await res.json();
@@ -89,13 +93,13 @@ export default function Home() {
             <div className="flex flex-col mt-10 md:w-full lg:w-5/12">
               <div className="flex flex-row justify-between">
                 <label className= "text-left opacity-60" htmlFor='policy'>Copy and paste your privacy policy below:</label>
-                <p className="text-sm mt-1">{limit-content.length} characters</p>
+                <p className="text-sm mt-1">{charLimit-content.length} characters</p>
               </div>
-              <textarea className={`bg-transparent border-white ${content.length < limit ? 'border-white' : 'border-red-700' } rounded mt-2 focus:outline-none focus:ring ${content.length < limit ? 'focus:ring-white' : 'focus:ring-red-700' } ${loading && 'opacity-60'}`} value={content} onChange={event => textHandler(event.target.value)} id='policy' rows='5' disabled={loading}></textarea>
+              <textarea className={`bg-transparent border-white ${content.length < charLimit ? 'border-white' : 'border-red-700' } rounded mt-2 focus:outline-none focus:ring ${content.length < charLimit ? 'focus:ring-white' : 'focus:ring-red-700' } ${loading && 'opacity-60'}`} value={content} onChange={event => textHandler(event.target.value)} id='policy' rows='5' disabled={loading}></textarea>
             </div>
             <div className="flex md:justify-start lg:justify-center md:items-start lg:items-center md:w-full lg:w-screen">
-              <button className={`bg-gradient-to-br from-[#3AAE62] to-[#9F4CC7] focus:outline-none focus:ring  focus:ring-white mt-5 px-0.5 py-0.5 rounded  ${content.length >= limit ? 'opacity-60' : ''}`} disabled={loading || content.length >= limit} onClick={generateResults}>
-                  <div className={`bg-black ${(!loading && content.length < limit) && 'hover:bg-gradient-to-br'} ${(!loading && content.length < limit) && 'hover:text-black'} from-[#3AAE62] to-[#9F4CC7] px-16 py-3 rounded`}>
+              <button className={`bg-gradient-to-br from-[#3AAE62] to-[#9F4CC7] focus:outline-none focus:ring  focus:ring-white mt-5 px-0.5 py-0.5 rounded  ${content.length >= charLimit ? 'opacity-60' : ''}`} disabled={loading || content.length >= charLimit} onClick={generateResults}>
+                  <div className={`bg-black ${(!loading && content.length < charLimit) && 'hover:bg-gradient-to-br'} ${(!loading && content.length < charLimit) && 'hover:text-black'} from-[#3AAE62] to-[#9F4CC7] px-16 py-3 rounded`}>
                 { loading 
                   ? <div className="w-6 h-6 rounded-full animate-spin border-2 border-solid border-white border-t-transparent"></div>
                   : 'Analyze policy'
