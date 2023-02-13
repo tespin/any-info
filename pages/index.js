@@ -38,6 +38,7 @@ export default function Home() {
   //   }
   // ];
 
+
   const textHandler = useCallback(
     text => {
       setContent(text);
@@ -49,7 +50,8 @@ export default function Home() {
     event.preventDefault();
     setResults([]);
     setLoading(true);
-  
+
+    // call to api with stringified content
     const res = await fetch('/api/demystify', {
       method: 'POST',
       headers: {
