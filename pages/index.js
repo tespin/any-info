@@ -48,10 +48,10 @@ export default function Home() {
   
   const generateResults = async (event) => {
     event.preventDefault();
-    setResults([]);
-    setLoading(true);
+    
+    setResults([]); // every new query should start with clean results
+    setLoading(true); // so we can conditionally render ui based on loading state
 
-    // call to api with stringified content
     const res = await fetch('/api/demystify', {
       method: 'POST',
       headers: {
